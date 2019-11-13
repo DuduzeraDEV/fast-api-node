@@ -9,7 +9,7 @@ import http from 'http';
 import * as dotenv from 'dotenv-safe';
 import myParser from 'body-parser';
 
-// import { routes } from './routes';
+import { routes } from './routes';
 
 dotenv.config();
 const app = express();
@@ -21,6 +21,6 @@ mongoose.connect(process.env.MONGO_KEY, {
 
 app.use(myParser.json({ limit: '200mb' }));
 app.use(cors());
-// app.use(routes);
+app.use(routes);
 
 server.listen(5000);
